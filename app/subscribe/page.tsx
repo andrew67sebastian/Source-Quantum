@@ -2,85 +2,135 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import FooterSection from '@/components/footer'
+import { TotalHeader } from '@/components/total-header'
+import SubscribeCard from '@/components/subscribe-card'
 import { HeroHeader } from '@/components/header'
 
-export default function subscribe() {
+// ── Edit copy here ────────────────────────────────────────────────────────────
+const PAGE_LABEL    = 'NEWSLETTER'
+const PAGE_HEADLINE = 'Quantum Report'
+const PAGE_BODY     = 'Weekly equity, crypto, and macro research — delivered to your inbox. No noise, just signal.'
+
+const PERKS = [
+  'Fundamentals-first equity breakdowns',
+  'On-chain crypto analysis',
+  'Macro risk framing for every trade',
+  'Independent, unbiased perspectives',
+]
+// ─────────────────────────────────────────────────────────────────────────────
+
+export default function SubscribePage() {
   return (
-    <div>
+    <div className="bg-[rgba(20,20,20,0.7)] min-h-screen overflow-x-hidden">
       <HeroHeader />
-      <main className="overflow-hidden">
-        <div
-          aria-hidden
-          className="absolute inset-0 isolate hidden opacity-65 contain-strict lg:block"
-        >
-          <div className="w-140 h-320 -translate-y-87.5 absolute left-0 top-0 -rotate-45 rounded-full bg-[radial-gradient(68.54%_68.72%_at_55.02%_31.46%,hsla(0,0%,85%,.08)_0,hsla(0,0%,55%,.02)_50%,hsla(0,0%,45%,0)_80%)]" />
-          <div className="h-320 absolute left-0 top-0 w-60 -rotate-45 rounded-full bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.06)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)] [translate:5%_-50%]" />
-          <div className="h-320 -translate-y-87.5 absolute left-0 top-0 w-60 -rotate-45 bg-[radial-gradient(50%_50%_at_50%_50%,hsla(0,0%,85%,.04)_0,hsla(0,0%,45%,.02)_80%,transparent_100%)]" />
-        </div>
-        <section>
-          <div className="relative pt-24 md:pt-36 min-h-[100vh] flex items-center">
-            {/* Background image - bg_main.png */}
-            <div className="absolute inset-0 top-0 overflow-hidden min-h-[120vh]" style={{ zIndex: -15 }}>
-              <Image
-                src="/bg_main.png"
-                alt="background"
-                className="w-full h-full object-cover"
-                width={1920}
-                height={1080}
-                priority
-                style={{
-                  objectPosition: 'center center',
-                }}
-              />
-              {/* Subtle overlay to ensure text readability */}
-              <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/10" />
-            </div>
 
-            <div className="mx-auto w-full max-w-2xl px-6 text-center">
-              <div className='flex justify-center items-center rounded-3xl mb-5'>
-                <Image src="/Logo_FullWhite.png" alt="logo" width={150} height={150} className='rounded-2xl sm:w-[200px] sm:h-[200px] sm:rounded-3xl' />
+      <main>
+        {/* ── HERO / FORM SECTION ──────────────────────────────────────────── */}
+        <section className="relative min-h-screen flex items-center overflow-hidden">
+
+          {/* Fixed background image — same as homepage */}
+          <div className="fixed inset-0 -z-10">
+            <Image
+              src="/bg_main.png"
+              alt=""
+              fill
+              priority
+              className="object-cover object-center"
+            />
+          </div>
+
+          <div className="mx-auto max-w-7xl px-6 lg:px-12 w-full pt-32 pb-24">
+
+            {/* Asymmetric grid: copy 6/12, form 6/12 */}
+            <div className="grid lg:grid-cols-12 gap-y-16 lg:gap-x-16 items-start">
+
+              {/* ── Left: editorial copy ── */}
+              <div className="lg:col-span-6 flex flex-col gap-8">
+
+                {/* Section label — Coral micro-accent */}
+                <p className="text-[0.6875rem] uppercase tracking-[0.2em] text-[#FE6672] font-medium font-sans">
+                  {PAGE_LABEL}
+                </p>
+
+                {/* Headline — Space Grotesk display */}
+                <h1
+                  className="uppercase font-display font-bold text-white leading-[1.05]"
+                  style={{ fontSize: 'clamp(2.75rem, 5vw, 4rem)', letterSpacing: '-0.02em' }}
+                >
+                  {PAGE_HEADLINE}
+                </h1>
+
+                {/* Body */}
+                <p className="text-base leading-relaxed text-white/70 max-w-sm">
+                  {PAGE_BODY}
+                </p>
+
+                {/* Ghost divider */}
+                <div className="h-px w-full bg-[rgba(173,179,180,0.15)]" />
+
+                {/* Perks list — Coral pips */}
+                {/* Edit: PERKS array above */}
+                <ul className="flex flex-col gap-5">
+                  {PERKS.map((perk) => (
+                    <li key={perk} className="flex items-start gap-4">
+                      <span className="mt-2 flex-shrink-0 w-1 h-1 bg-[#FE6672]" aria-hidden="true" />
+                      <span className="text-sm text-white/80 leading-snug">{perk}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Back link */}
+                <Link
+                  href="/"
+                  className="w-fit text-xs uppercase tracking-[0.15em] text-white/40 hover:text-white/80 transition-colors duration-150 mt-2"
+                >
+                  ← Back to site
+                </Link>
               </div>
-              <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                Quantum Report
-              </h1>
-              <p className="mt-4 text-base text-white/70 sm:text-lg">
-                join our daily newsletter to source your trades
-              </p>
 
-              {/* Beehiiv form: wrapper fits iframe height */}
-              <div className="sm:mt-[5px] mt-0 py-0 sm:py-5 flex justify-center">
-                <div className="w-full max-w-md rounded-3xl sm:border sm:border-white/10 sm:bg-white bg-transparent sm:shadow-2xl sm:shadow-black/40">
-                  <iframe
-                    src="https://subscribe-forms.beehiiv.com/50a4d47f-0cb0-49db-839c-315a157a6093"
-                    title="Beehiiv Subscribe"
-                    className="beehiiv-embed w-full rounded-3xl"
-                    data-test-id="beehiiv-embed"
-                    frameBorder={0}
-                    scrolling="no"
-                    // Key change: small height so it doesn't look like a tall card
-                    // Adjust 180–260 depending on whether your Beehiiv form includes name fields, etc.
-                    style={{
-                      height: 210,
-                      margin: 0,
-                      backgroundColor: 'transparent',
-                      boxShadow: '0 0 #0000',
-                      maxWidth: '100%',
-                    }}
-                  />
+              {/* ── Right: form slab ── */}
+              {/* surface-lowest (#fff), 0px corners, ambient shadow */}
+              <div className="lg:col-span-6">
+                <div className="bg-white shadow-ambient flex flex-col">
+
+                  {/* Form header strip */}
+                  <div className="px-8 pt-8 pb-6 border-r-0 border border-[rgba(173,179,180,0.15)] ">
+                    <p className="text-[0.6875rem] uppercase tracking-[0.2em] text-[#FE6672] font-medium mb-2">
+                      TAKE THE QUANTUM LEAP
+                    </p>
+                    <p className="text-xs text-[#6b7280]">
+                      Free to join. Unsubscribe any time.
+                    </p>
+                  </div>
+
+                  {/* Beehiiv embed — 0px corners enforced by global CSS */}
+                  {/* Edit: swap the iframe src with your Beehiiv form URL */}
+                  <div className='flex flex-col justify-center h-auto w-full py-4 px-4 md:py-[50px] md:px-[2rem] bg-white'>
+                      <SubscribeCard />
+                  </div>
+
+                  {/* Bottom social proof strip */}
+                  <div className="px-8 py-5 bg-[#f2f4f4] flex items-center gap-3">
+                    {/* Coral micro-accent dot */}
+                    <span className="w-1.5 h-1.5 bg-[#FE6672] flex-shrink-0" aria-hidden="true" />
+                    <p className="text-xs text-[#6b7280]">
+                      Trusted by independent traders and analysts.
+                    </p>
+                  </div>
+
                 </div>
               </div>
-            </div>
 
+            </div>
           </div>
         </section>
 
+        {/* ── FOOTER ── */}
+        <FooterSection />
 
-
-        <section className="max-w-screen w-screen flex justify-center">
-          <FooterSection />
-        </section>
-        <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script>
+        <script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js" />
       </main>
     </div>
   )
