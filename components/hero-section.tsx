@@ -141,7 +141,7 @@ export default function HeroSection() {
         {/* ── SERVICES ─────────────────────────────────────────────────────── */}
         {/* surface-low background slab — no borders, tonal separation */}
         <section id="solutions" className="bg-[#FFF] pt-0 pb-40">
-          <div className='text-2xl lg:text-3xl font-display font-bold text-primary mx-auto nav-width px-6 lg:px-6 py-12'
+          <div className='text-3xl lg:text-3xl font-sans-alt font-medium text-primary mx-auto nav-width px-6 lg:px-6 py-12'
                style={{ letterSpacing: '-0.015em' }}>
             Our Solutions
           </div>

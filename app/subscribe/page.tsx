@@ -11,7 +11,7 @@ import { HeroHeader } from '@/components/header'
 // ── Edit copy here ────────────────────────────────────────────────────────────
 const PAGE_LABEL    = 'NEWSLETTER'
 const PAGE_HEADLINE = 'Quantum Report'
-const PAGE_BODY     = 'Weekly equity, crypto, and macro research — delivered to your inbox. No noise, just signal.'
+const PAGE_BODY     = 'Short-form commentary, delivered everyday to your inbox at 08:00 WIB to keep you ahead of the market. Insights designed for Indonesian investors to understand global dynamics.'
 
 const PERKS = [
   'Fundamentals-first equity breakdowns',
@@ -41,13 +41,13 @@ export default function SubscribePage() {
             />
           </div>
 
-          <div className="mx-auto max-w-7xl px-6 lg:px-12 w-full pt-32 pb-24">
+          <div className="mx-auto nav-width px-6 lg:px-12 w-full pt-32 pb-24">
 
             {/* Asymmetric grid: copy 6/12, form 6/12 */}
-            <div className="grid lg:grid-cols-12 gap-y-16 lg:gap-x-16 items-start">
+            <div className="grid lg:grid-cols-12 gap-y-16 lg:gap-x-24 items-start">
 
               {/* ── Left: editorial copy ── */}
-              <div className="lg:col-span-6 flex flex-col gap-8">
+              <div className="lg:col-span-7 flex flex-col gap-8 pr-2">
 
                 {/* Section label — Coral micro-accent */}
                 <p className="text-[0.6875rem] uppercase tracking-[0.2em] text-[#FE6672] font-medium font-sans">
@@ -56,14 +56,14 @@ export default function SubscribePage() {
 
                 {/* Headline — Space Grotesk display */}
                 <h1
-                  className="uppercase font-display font-bold text-white leading-[1.05]"
-                  style={{ fontSize: 'clamp(2.75rem, 5vw, 4rem)', letterSpacing: '-0.02em' }}
+                  className="uppercase text-8xl font-display font-bold text-white leading-[1.05]"
+                  style={{ letterSpacing: '-0.02em' }}
                 >
                   {PAGE_HEADLINE}
                 </h1>
 
                 {/* Body */}
-                <p className="text-base leading-relaxed text-white/70 max-w-sm">
+                <p className="text-xl leading-tight text-white/70 text-justify font-sans-alt" style={{ letterSpacing: '-0.01em' }}>
                   {PAGE_BODY}
                 </p>
 
@@ -92,27 +92,27 @@ export default function SubscribePage() {
 
               {/* ── Right: form slab ── */}
               {/* surface-lowest (#fff), 0px corners, ambient shadow */}
-              <div className="lg:col-span-6">
-                <div className="bg-white shadow-ambient flex flex-col">
+              <div className="lg:col-span-5 bg-terminal-surface-2 border flex flex-col items-center justify-center border-white/20 rounded-[8px]">
+                <div className="flex flex-col justify-center">
 
                   {/* Form header strip */}
-                  <div className="px-8 pt-8 pb-6 border-r-0 border border-[rgba(173,179,180,0.15)] ">
-                    <p className="text-[0.6875rem] uppercase tracking-[0.2em] text-[#FE6672] font-medium mb-2">
-                      TAKE THE QUANTUM LEAP
+                  <div className="px-8 pt-12 pb-4">
+                    <p className="text-[0.6875rem] uppercase tracking-[0.2em] text-white/60 font-medium mb-6">
+                      subscribe - free
                     </p>
-                    <p className="text-xs text-[#6b7280]">
-                      Free to join. Unsubscribe any time.
+                    <p className="text-5xl text-white font-playfair">
+                      Join 300+ readers
                     </p>
                   </div>
 
                   {/* Beehiiv embed — 0px corners enforced by global CSS */}
                   {/* Edit: swap the iframe src with your Beehiiv form URL */}
-                  <div className='flex flex-col justify-center h-auto w-full py-4 px-4 md:py-[50px] md:px-[2rem] bg-white'>
+                  <div className='flex flex-col justify-center h-auto w-full px-4 py-6 md:px-[2rem]'>
                       <SubscribeCard />
                   </div>
 
                   {/* Bottom social proof strip */}
-                  <div className="px-8 py-5 bg-[#f2f4f4] flex items-center gap-3">
+                  <div className="px-8 flex items-center gap-3 mt-2 pb-12">
                     {/* Coral micro-accent dot */}
                     <span className="w-1.5 h-1.5 bg-[#FE6672] flex-shrink-0" aria-hidden="true" />
                     <p className="text-xs text-[#6b7280]">

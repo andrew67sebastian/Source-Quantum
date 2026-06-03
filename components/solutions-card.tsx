@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 /* Equity Research (ER) card content */
 const ER_DESC = "Proprietary research service for your firm's unique needs."
@@ -34,7 +35,7 @@ const SolutionsCard = () => {
                 </div>
                 {/* logo and image block */}
                 <div className='col-span-2 px-4'>
-                    <Image src="/research.png" width={110} height={150} alt="alpha" className='opacity-5 h-auto object-contain' />
+                    <Image src="/research.png" width={110} height={150} alt="alpha" className='opacity-5 h-auto object-contain group-hover:opacity-80 duration-300' />
                 </div>
                     {/* right content block */}
                 <div className='col-span-6'>
@@ -49,7 +50,7 @@ const SolutionsCard = () => {
         </div>
         <div className='mx-auto w-full bg-white has-[.child:hover]:bg-[#F7F7F7] bg h-80 transition-colors duartion-300'>
             {/* ── SOLUTIONS CARD | Content Blocks ─────────────────────────────────────────────────────── */}
-            <div className='child group h-full mx-auto nav-width px-6 lg:px-6 grid lg:grid-cols-12 gap-12 pt-4 border-b-1 border-t-1 border-[#F7F7F7]'>
+            <Link href="/subscribe" className='child group h-full mx-auto nav-width px-6 lg:px-6 grid lg:grid-cols-12 gap-12 pt-4 border-b-1 border-t-1 border-[#F7F7F7]'>
                 {/* left content block */}
             <div className='col-span-2 flex flex-col justify-between'>
                 <p className='text-primary text-[20px]'>
@@ -61,7 +62,7 @@ const SolutionsCard = () => {
             </div>
             {/* logo and image block */}
             <div className='col-span-2 px-4'>
-                <Image src="/news.png" width={110} height={150} alt="newsletter" className='opacity-5 h-auto object-contain' />
+                <Image src="/news.png" width={110} height={150} alt="newsletter" className='opacity-5 h-auto object-contain group-hover:opacity-80 duration-300' />
             </div>
                 {/* right content block */}
             <div className='col-span-6'>
@@ -71,12 +72,12 @@ const SolutionsCard = () => {
                 </h1>
             </div>
 
-            </div>
+            </Link>
 
         </div>
         <div className='w-full bg-white has-[.child:hover]:bg-[#F7F7F7] bg h-80 transition-colors duartion-300'>
             {/* ── SOLUTIONS CARD | Content Blocks ─────────────────────────────────────────────────────── */}
-            <div className='child group h-full mx-auto nav-width px-6 lg:px-6 grid lg:grid-cols-12 gap-12 pt-4 border-b-1 border-t-1 border-[#F7F7F7]'>
+            <Link href="/mentat" className='child group h-full mx-auto nav-width px-6 lg:px-6 grid lg:grid-cols-12 gap-12 pt-4 border-b-1 border-t-1 border-[#F7F7F7]'>
                 {/* left content block */}
             <div className='col-span-2 flex flex-col justify-between'>
                 <p className='text-primary text-[20px]'>
@@ -87,7 +88,7 @@ const SolutionsCard = () => {
                 </p>
             </div>
             <div className='col-span-2 px-2'>
-                <Image src="/severina.png" width={130} height={150} alt="mobile" className='opacity-5 h-auto object-contain' />
+                <Image src="/severina.png" width={130} height={150} alt="mobile" className='opacity-5 h-auto object-contain group-hover:opacity-80 duration-300' />
             </div>
                 {/* right content block */}
             <div className='col-span-6'>
@@ -97,7 +98,7 @@ const SolutionsCard = () => {
                 </h1>
             </div>
 
-            </div>
+            </Link>
 
         </div>
     </div>
