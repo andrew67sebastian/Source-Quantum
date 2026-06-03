@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { createChart, LineSeries } from 'lightweight-charts';
-import type { IChartApi, ISeriesApi } from 'lightweight-charts';
+import type { IChartApi, ISeriesApi, UTCTimestamp } from 'lightweight-charts';
 import { createChartOptions, DEFAULT_SERIES_OPTIONS } from '@/config/chartConfig';
 import { DEFAULT_TIMEZONE } from '@/config/timezone';
 import type { DataPoint } from '@/hooks/useHistoricalData';
@@ -57,7 +57,7 @@ export function LightweightChartCanvas({ data, timezone = DEFAULT_TIMEZONE, colo
 
   useEffect(() => {
     if (!seriesRef.current || !chartRef.current) return;
-    seriesRef.current.setData(data);
+    seriesRef.current.setData(data as { time: UTCTimestamp; value: number }[]);
     if (data.length > 0) chartRef.current.timeScale().fitContent();
   }, [data]);
 

@@ -19,7 +19,10 @@ const researchDropdown = [
 ]
 // ─────────────────────────────────────────────────────────────────────────────
 
-export const TotalHeader = () => {
+export const TotalHeader = TotalHeaderComponent;
+export default TotalHeaderComponent;
+
+function TotalHeaderComponent() {
   const [menuOpen, setMenuOpen] = React.useState(false)
   const [scrolled, setScrolled]   = React.useState(false)
   const [researchOpen, setResearchOpen] = React.useState(false)

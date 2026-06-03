@@ -1,7 +1,7 @@
 import 'server-only';
 import { NextRequest, NextResponse } from 'next/server';
 import YahooFinance from 'yahoo-finance2';
-import type { ChartResultArray } from 'yahoo-finance2/esm/src/modules/chart.js';
+import type { ChartResultArray } from 'yahoo-finance2/modules/chart';
 
 const yf = new YahooFinance({ suppressNotices: ['yahooSurvey'] });
 
